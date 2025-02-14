@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-image: url('https://cdn.pixabay.com/photo/2023/03/31/17/18/carchi-7890573_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin:0;
+        }
+        div {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div style="border-style: solid; width:500px">
+        <h1>Edit Park</h1>
+        <form th:object="${attraction}" method="post">
+            <input type="hidden" th:field="*{id}" />
+
+            <label>Name</label>
+            <input type="text" th:field="*{name}" />
+            </br>
+
+            <label>Description</label>
+            <textarea rows="3" cols="20" th:field="*{description}"></textarea>
+            </br>
+
+            <label>Website</label>
+            <input type="text" th:field="*{website}"/>
+            </br>
+
+            <button type="submit">Update Attraction</button>
+        </form>
+
+    </div>
+</div>
+</body>
+</html>

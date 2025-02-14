@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Attraction Form</title>
+    <style type="text/css">
+        label {
+            display:inline-block;
+            width:100px;
+            margin:5px;
+            text-align:left;
+        }
+        input[type=text] {
+            display:inline-block;
+            width:200px;
+        }
+        button {
+            padding:5px;
+            margin:10px;
+        }
+
+    </style>
+</head>
+<body>
+<div align="center">
+    <div style="border-style:solid; width:500px">
+        <h1>Add National Park</h1>
+        <form role="form" action ="#" method="post" th:action="@{/attractions/add}"
+        th:object="${attraction}"
+        >
+            <input type ="hidden" th:field="*{id}"/>
+            <label>Park name</label>
+            <input type="text" th:field="*{name}"/>
+            </br>
+            <label>Description</label>
+            <textarea rows="3" cols="20" th:field="*{description}"></textarea>
+            </br>
+            <label>Website</label>
+            <input type="text" th:field="*{website}"/>
+            </br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

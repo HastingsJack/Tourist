@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <title>Title</title>
+  <style>
+    body {
+      background-image: url('https://cdn.pixabay.com/photo/2015/03/30/12/37/jellyfish-698521_1280.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    table {
+      background-color: rgba(0, 0, 0, 0.5); /* Darker background with transparency */
+      color: white; /* Make text color white to contrast with the dark background */
+    }
+    th {
+      color:white;
+    }
+    td {
+      color:white;
+    }
+    a {
+      color:white;
+    }
+  </style>
+</head>
+<body>
+<h1 style="text-align: center; text-decoration: underline;">Nature Adventure Bucket List</h1>
+<div style="text-align: center;">
+  <a th:href="@{/}">Home</a>
+  <span style="width: 20px; display: inline-block;"></span>
+  <a th:href="@{/attractions/add}">Add Attraction</a>
+</div>
+<table class="table table-hover" style="margin-left:auto; margin-right:auto;">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Website</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="attract : ${attractions}">
+      <th></th>
+      <td th:text="${attract.name}"></td>
+      <td th:text="${attract.description}"></td>
+      <td><a th:href="${attract.website}" th:text="${attract.website}" target="_blank"></a></td>
+      <td>
+        <form th:action="@{/attractions/update/{id}(id=${attract.id})}" method="get" style="display:inline;">
+          <button type="submit" class="edit-link">Edit</button>
+        </form>
+      </td>
+      <td>
+        <form th:action="@{/attractions/delete/{name}(name=${attract.name})}" method="post" style="display:inline;">
+          <button type="submit" class="delete-link">Delete</button>
+        </form>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
