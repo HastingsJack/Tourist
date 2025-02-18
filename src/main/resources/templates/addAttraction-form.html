@@ -28,8 +28,7 @@
     <div style="border-style:solid; width:500px">
         <h1>Add National Park</h1>
         <form role="form" action ="#" method="post" th:action="@{/attractions/add}"
-        th:object="${attraction}"
-        >
+        th:object="${attraction}">
             <input type ="hidden" th:field="*{id}"/>
             <label>Park name</label>
             <input type="text" th:field="*{name}"/>

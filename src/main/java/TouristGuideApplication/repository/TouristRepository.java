@@ -18,6 +18,7 @@ public class TouristRepository {
     private void populateAttractions() {
         attractions.add(new TouristAttraction("Yellowstone","National Park","https://www.nps.gov/yell/index.htm"));
         attractions.add(new TouristAttraction("Shenandoah","National Park","https://www.nps.gov/shen/index.htm"));
+        attractions.add(new TouristAttraction("Apo Island","National Park","https://www.tripadvisor.dk/Tourism-g1074098-Apo_Island_Dauin_Negros_Oriental_Negros_Island_Visayas-Vacations.html"));
     }
 
     public List<TouristAttraction> getAllAttractions() {

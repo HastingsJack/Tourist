@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Attraction</title>
+</head>
+<body th:object="${attraction}">
+<p th:text="${attraction.getName()}"></p>
+<p th:text="${attraction.getDescription()}"></p>
+<p th:text="${attraction.getWebsite()}"></p>
+</body>
+</html>

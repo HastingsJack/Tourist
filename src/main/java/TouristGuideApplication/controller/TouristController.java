@@ -2,8 +2,6 @@ package TouristGuideApplication.controller;
 
 import TouristGuideApplication.model.TouristAttraction;
 import TouristGuideApplication.service.TouristService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -27,9 +25,10 @@ public class TouristController {
     }
 
     @GetMapping("/attractions/{name}")
-    public ResponseEntity<TouristAttraction> getAttraction(@PathVariable String name) {
+    public String getAttraction(Model model, @PathVariable String name) {
         TouristAttraction attraction = touristService.getAttractionByName(name);
-        return new ResponseEntity<>(attraction, HttpStatus.OK);
+        model.addAttribute("attraction", attraction);
+        return "attraction-form";
     }
 
     @GetMapping("/attractions/add")
@@ -39,7 +38,7 @@ public class TouristController {
         return "addAttraction-form";
     }
 
-    @PostMapping("/attractions/add")
+    @PostMapping("/attractions/save")
     public String addAttraction(@ModelAttribute("attraction") TouristAttraction attraction) {
         touristService.addAttraction(attraction);
         return "redirect:/attractions";

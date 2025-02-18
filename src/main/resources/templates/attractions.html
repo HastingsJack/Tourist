@@ -50,7 +50,7 @@
   <tbody>
     <tr th:each="attract : ${attractions}">
       <th></th>
-      <td th:text="${attract.name}"></td>
+        <td> <a th:href="@{attractions/{name}(name=${attract.name})}" th:text="${attract.name}"></a></td>
       <td th:text="${attract.description}"></td>
       <td><a th:href="${attract.website}" th:text="${attract.website}" target="_blank"></a></td>
       <td>
