@@ -31,10 +31,6 @@ public class TouristService {
         touristRepository.updateAttraction(attraction);
     }
 
-    public TouristAttraction getAttractionById(UUID id) {
-        return touristRepository.getAttractionById(id);
-    }
-
     public void deleteAttraction(TouristAttraction attraction) {
         touristRepository.deleteAttraction(attraction);
     }

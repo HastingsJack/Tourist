@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Repository
 public class TouristRepository {
@@ -39,24 +38,12 @@ public class TouristRepository {
     }
 
     public void updateAttraction(TouristAttraction attraction) {
-        TouristAttraction oldAttraction = getAttractionById(attraction.getId());
-        oldAttraction.setName(attraction.getName());
+        TouristAttraction oldAttraction = getAttractionByName(attraction.getName());
         oldAttraction.setDescription(attraction.getDescription());
         oldAttraction.setWebsite(attraction.getWebsite());
-    }
-
-    public TouristAttraction getAttractionById(UUID id) {
-        for(TouristAttraction a : attractions) {
-            if(a.getId().equals(id)) {
-                return a;
-            }
-        }
-        return null;
     }
 
     public void deleteAttraction(TouristAttraction attraction) {
         attractions.remove(attraction);
     }
-
-
 }

@@ -54,7 +54,7 @@
       <td th:text="${attract.description}"></td>
       <td><a th:href="${attract.website}" th:text="${attract.website}" target="_blank"></a></td>
       <td>
-        <form th:action="@{/attractions/update/{id}(id=${attract.id})}" method="get" style="display:inline;">
+        <form th:action="@{/attractions/{name}/edit(name=${attract.name})}" method="get" style="display:inline;">
           <button type="submit" class="edit-link">Edit</button>
         </form>
       </td>

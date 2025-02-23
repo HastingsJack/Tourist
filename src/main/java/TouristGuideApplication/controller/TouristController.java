@@ -44,9 +44,9 @@ public class TouristController {
         return "redirect:/attractions";
     }
 
-    @GetMapping("/attractions/update/{id}")
-    public String editAttractionForm(@PathVariable UUID id, Model model) {
-        TouristAttraction attraction = touristService.getAttractionById(id);
+    @GetMapping("/attractions/{name}/edit")
+    public String editAttractionForm(@PathVariable String name, Model model) {
+        TouristAttraction attraction = touristService.getAttractionByName(name);
         if(attraction == null) {
             throw new IllegalArgumentException("No such attraction");
         }
@@ -54,7 +54,7 @@ public class TouristController {
         return "editAttraction-form";
     }
 
-    @PostMapping("/attractions/update/{id}")
+    @PostMapping("/attractions/update")
     public String editAttraction(@ModelAttribute("attraction") TouristAttraction attraction) {
         touristService.updateAttraction(attraction);
         return "redirect:/attractions";
