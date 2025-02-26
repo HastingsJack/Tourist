@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${name} + ' Tags'">Attraction Tags</title>
+</head>
+<body>
+<h1 th:text="'Tags for: ' + ${name}">Attraction Name</h1>
+
+<ul>
+    <li th:each="tag : ${tags}" th:text="${tag}">Tag</li>
+</ul>
+
+<button onclick="window.history.back()">Tilbage</button>
+</body>
+</html>

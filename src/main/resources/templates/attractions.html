@@ -63,6 +63,11 @@
           <button type="submit" class="delete-link">Delete</button>
         </form>
       </td>
+      <td>
+        <a th:href="@{/attractions/{name}/tags(name=${attract.name})}">
+          <button>Tags</button>
+        </a>
+      </td>
     </tr>
   </tbody>
 </table>
