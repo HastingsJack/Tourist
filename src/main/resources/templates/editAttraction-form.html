@@ -5,12 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../css/Stylesheet.css">
+    <link rel="stylesheet" href="../static/css/stylesheet.css">
 
 </head>
-<body>
+<body class="edit-body">
 <div>
-    <div style="border-style: solid; width:500px">
+    <div class="centered-box">
         <h1>Edit Park</h1>
         <form th:object="${attraction}" th:action="@{/attractions/update}" method="post">
             <label>Name</label>
