@@ -5,12 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Attraction Form</title>
-    <link rel="stylesheet" href="../static/css/stylesheet.css">
+    <link rel="stylesheet" href="/css/stylesheet.css">
 
 </head>
-<body>
-<div align="center">
-    <div style="border-style:solid; width:500px">
+<body class="edit-body">
+<div >
+    <div class="centered-box">
         <h1>Add National Park</h1>
         <form role="form" action ="#" method="post" th:action="@{/attractions/add}"
         th:object="${attraction}">

@@ -2,19 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/static/css/stylesheet.css">
-    <title th:text="${name} + ' Tags'">Attraction Tags</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+    <title>Homepage</title>
 </head>
 <body class="index-body">
-    <h1 style="text-align: center;">Tourist Attractions Assignment</h1>
-    <h4 style="text-align: center;">
-        This website features a bucket list for nature experiences
-    </h4>
-    <div style="width:100%; text-align:center; margin:auto;"><a th:href="@{/attractions}">See Attractions</a></div>
-    <footer style="color: white; padding: 10px; text-align: center;">
-        <p>Contact: joha0005@stud.kea.dk</p>
-
-    </footer>
-
+<div class="centered-box">
+<h1>Tourist Attractions Assignment</h1>
+<h4>
+    This website features a bucket list for nature experiences
+</h4>
+<div class="attractions-links">
+    <a th:href="@{/attractions}">See Attractions</a>
+</div>
+</div>
+<footer>
+    <p>Contact: joha0005@stud.kea.dk</p>
+</footer>
 </body>
 </html>

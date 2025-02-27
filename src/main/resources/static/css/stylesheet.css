@@ -12,6 +12,7 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    text-align: justify-all;
 }
 
 /* Background styling for the edit page */
@@ -71,4 +72,8 @@ button {
     margin: 10px;
 }
 
+footer{
+    align-self: center;
+    text-align: center;
+}
 
