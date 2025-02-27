@@ -1,18 +1,33 @@
 package TouristGuideApplication.model;
 
+import java.util.List;
+
 public class TouristAttraction {
     private String name;
     private String description;
     private String website;
+    private List<String> tags;
+    private List<String> city;
 
     public TouristAttraction() {
 
     }
 
-    public TouristAttraction(String name, String description, String website) {
+    public TouristAttraction(String name, String description, String website, List<String> tags, List<String> city) {
         this.name = name;
         this.description = description;
         this.website = website;
+        this.tags = tags;
+        this.city = city;
+
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public List<String> getCity() {
+        return city;
     }
 
     public String getWebsite() {

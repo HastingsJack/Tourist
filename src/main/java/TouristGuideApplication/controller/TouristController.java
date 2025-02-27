@@ -69,4 +69,13 @@ public class TouristController {
         touristService.deleteAttraction(attraction);
         return "redirect:/attractions";
     }
+
+    @GetMapping("/attractions/{name}/tags")
+    public String getTagsForAttraction(@PathVariable String name, Model model) {
+        List<String> tags = touristService.getTagsForAttraction(name);
+
+        model.addAttribute("tags", tags);
+        model.addAttribute("name", name);
+        return "tags";
+    }
 }
