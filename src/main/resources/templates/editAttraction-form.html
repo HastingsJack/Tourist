@@ -9,7 +9,7 @@
 
 </head>
 <body class="edit-body">
-<div>
+<div class="content">
     <div class="centered-box">
         <h1>Edit Park</h1>
         <form th:object="${attraction}" th:action="@{/attractions/update}" method="post">
@@ -30,4 +30,5 @@
     </div>
 </div>
 </body>
+<div th:replace="fragments/footer :: footer"></div>
 </html>

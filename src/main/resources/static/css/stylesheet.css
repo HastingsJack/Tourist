@@ -4,6 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin: 0;
 }
 
 /* Background styling for index */
@@ -29,11 +30,12 @@ table {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
 }
+
 th, td {
     color: white;
 }
 
-a {
+.attractions-links {
     color: navajowhite;
     font-size: 30px;
 }
@@ -55,25 +57,39 @@ button {
     padding: 5px;
     margin: 10px;
 }
-
+.content {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center
+}
 /* Centered divs with borders */
 .centered-box {
     border-style: solid;
     width: 500px;
     text-align: center;
     margin: auto;
+    padding: 10px 0 10px 0
 }
 
-/* Links */
-.attractions-links {
+footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     text-align: center;
-}
-.attractions-links a {
-    margin: 10px;
+    align-content: center;
+    width: 100%;
+    background: white;
+    opacity: 75%;
+    height: 10vh;
+    color: black;
+
 }
 
-footer{
-    align-self: center;
-    text-align: center;
+.textBlock {
+    width: 100%;
+    height: 20px;
+    font-family: "Bell MT";
 }
 

@@ -8,8 +8,10 @@
 
 </head>
 <body th:object="${attraction}" class="edit-body">
-<p th:text="${attraction.getName()}"></p>
-<p th:text="${attraction.getDescription()}"></p>
-<p th:text="${attraction.getWebsite()}"></p>
+    <div class="content">
+        <p th:text="${attraction.getName()}"></p>
+        <p th:text="${attraction.getDescription()}"></p>
+        <p th:text="${attraction.getWebsite()}"></p>
+    </div>
 </body>
 </html>
