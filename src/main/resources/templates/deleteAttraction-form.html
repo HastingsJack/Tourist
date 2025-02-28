@@ -9,12 +9,16 @@
 </head>
 <body>
 <div>
-    <div class="centered-box">
-        <h1>Delete Attraction</h1>
-        <form th:action="@{/attractions/delete/{name}(name=${attraction.name})}"></form>
+    <div class="content">
+        <div class="centered-box">
+            <h1>Delete Attraction</h1>
+            <form th:action="@{/attractions/delete/{name}(name=${attraction.name})}"></form>
+        </div>
     </div>
 
 </div>
 
 </body>
+
+<div th:replace="fragments/footer :: footer"></div>
 </html>

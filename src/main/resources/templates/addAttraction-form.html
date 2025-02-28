@@ -10,36 +10,38 @@
 </head>
 <body class="edit-body">
 <div>
-    <div class="centered-box">
-        <h1>Add National Park</h1>
-        <form role="form" action="#" method="post" th:action="@{/attractions/save}"
-              th:object="${attraction}">
-            <label>Attraction Name</label>
-            <input type="text" th:field="*{name}"/>
+    <div class="content">
+        <div class="centered-box">
+            <h1>Add National Park</h1>
+            <form role="form" action="#" method="post" th:action="@{/attractions/save}"
+                  th:object="${attraction}">
+                <label>Attraction Name</label>
+                <input type="text" th:field="*{name}"/>
 
-            <br>
-            <label>Description</label>
-            <textarea rows="3" cols="20" th:field="*{description}"></textarea>
+                <br>
+                <label>Description</label>
+                <textarea rows="3" cols="20" th:field="*{description}"></textarea>
 
-            <br>
-            <label>Website</label>
-            <input type="text" th:field="*{website}"/>
+                <br>
+                <label>Website</label>
+                <input type="text" th:field="*{website}"/>
 
-            <br>
-            <label>City</label>
-            <input type="text" th:field="*{city}">
+                <br>
+                <label>City</label>
+                <input type="text" th:field="*{city}">
 
-            <br>
-            <div th:each="tag : ${tags}">
-                <label th:for="${tag}" th:text="${tag}"></label>
-                <input type="checkbox" th:id="${tag}" th:name="tags" th:value="${tag}">
-            </div>
+                <br>
+                <div th:each="tag : ${tags}">
+                    <label th:for="${tag}" th:text="${tag}"></label>
+                    <input type="checkbox" th:id="${tag}" th:name="tags" th:value="${tag}">
+                </div>
 
 
-
-            <button type="submit">Submit</button>
-        </form>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     </div>
 </div>
 </body>
+<div th:replace="fragments/footer :: footer"></div>
 </html>

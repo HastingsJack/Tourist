@@ -6,19 +6,19 @@
     <title>Homepage</title>
 </head>
 <body class="index-body">
-<div class="centered-box">
-    <h1>Tourist Attractions Assignment</h1>
-    <h4>
-        This website features a bucket list for nature experiences
-    </h4>
-    <div class="attractions-links">
-        <a th:href="@{/attractions}">See Attractions</a>
+<div class="content">
+    <div class="centered-box">
+        <h1>Tourist Attractions Assignment</h1>
+        <h4>
+            This website features a bucket list for nature experiences
+        </h4>
+        <div class="attractions-links">
+            <a th:href="@{/attractions}">See Attractions</a>
+        </div>
     </div>
 </div>
-
-
 </body>
-<footer>
-<div th:replace="fragments/footer :: footer"></div>
-    <footer>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
 </html>
