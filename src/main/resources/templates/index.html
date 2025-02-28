@@ -2,43 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/TouristSiteStyling.css">
+    <link rel="stylesheet" href="/css/stylesheet.css">
     <title>Homepage</title>
-    <style>
-        html, body {
-            height:100%;
-            margin:0;
-        }
-        body {
-            background-image: url('https://cdn.pixabay.com/photo/2023/11/06/09/52/mountain-8369262_1280.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        main{
-            flex-grow:1;
-        }
-        a{
-            color: navajowhite;
-            font-size: 30px;
-        }
-
-    </style>
 </head>
-<body>
-    <h1 style="text-align: center;">Tourist Attractions Assignment</h1>
-    <h4 style="text-align: center;">
-        This website features a bucket list for nature experiences
-    </h4>
-    <div style="width:100%; text-align:center; margin:auto;"><a th:href="@{/attractions}">See Attractions</a></div>
-    <footer style="color: white; padding: 10px; text-align: center;">
-        <p>Contact: joha0005@stud.kea.dk</p>
-
-    </footer>
-
+<body class="index-body">
+<div class="centered-box">
+<h1>Tourist Attractions Assignment</h1>
+<h4>
+    This website features a bucket list for nature experiences
+</h4>
+<div class="attractions-links">
+    <a th:href="@{/attractions}">See Attractions</a>
+</div>
+</div>
+<footer>
+    <p>Contact: joha0005@stud.kea.dk</p>
+</footer>
 </body>
 </html>

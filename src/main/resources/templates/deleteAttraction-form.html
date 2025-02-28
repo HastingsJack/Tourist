@@ -5,10 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Delete Attraction</title>
+    <link rel="stylesheet" href="../static/css/stylesheet.css">
 </head>
 <body>
 <div>
-    <div style="border-style: solid; width: 500px">
+    <div class="centered-box">
         <h1>Delete Attraction</h1>
         <form th:action="@{/attractions/delete/{name}(name=${attraction.name})}"></form>
     </div>

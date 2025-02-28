@@ -5,27 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        body {
-            background-image: url('https://cdn.pixabay.com/photo/2023/03/31/17/18/carchi-7890573_1280.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin:0;
-        }
-        div {
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+
 </head>
-<body>
+<body class="edit-body">
 <div>
-    <div style="border-style: solid; width:500px">
+    <div class="centered-box">
         <h1>Edit Park</h1>
         <form th:object="${attraction}" th:action="@{/attractions/update}" method="post">
             <label>Name</label>

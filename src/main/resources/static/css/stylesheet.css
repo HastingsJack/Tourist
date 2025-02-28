@@ -1,0 +1,79 @@
+/* General styling for body */
+body {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Background styling for index */
+.index-body {
+    background-image: url('https://cdn.pixabay.com/photo/2023/11/06/09/52/mountain-8369262_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: justify-all;
+}
+
+/* Background styling for the edit page */
+.edit-body {
+    background-image: url('https://cdn.pixabay.com/photo/2023/03/31/17/18/carchi-7890573_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* Table styling */
+table {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+th, td {
+    color: white;
+}
+
+a {
+    color: navajowhite;
+    font-size: 30px;
+}
+
+/* Form styling */
+label {
+    display: inline-block;
+    width: 100px;
+    margin: 5px;
+    text-align: left;
+}
+
+input[type=text] {
+    display: inline-block;
+    width: 200px;
+}
+
+button {
+    padding: 5px;
+    margin: 10px;
+}
+
+/* Centered divs with borders */
+.centered-box {
+    border-style: solid;
+    width: 500px;
+    text-align: center;
+    margin: auto;
+}
+
+/* Links */
+.attractions-links {
+    text-align: center;
+}
+.attractions-links a {
+    margin: 10px;
+}
+
+footer{
+    align-self: center;
+    text-align: center;
+}
+

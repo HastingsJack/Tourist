@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Attraction</title>
+    <link rel="stylesheet" href="/css/stylesheet.css">
+
 </head>
-<body th:object="${attraction}">
+<body th:object="${attraction}" class="edit-body">
 <p th:text="${attraction.getName()}"></p>
 <p th:text="${attraction.getDescription()}"></p>
 <p th:text="${attraction.getWebsite()}"></p>
