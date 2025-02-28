@@ -19,7 +19,6 @@ public class TouristAttraction {
         this.website = website;
         this.tags = tags;
         this.city = city;
-
     }
 
     public List<String> getTags() {
