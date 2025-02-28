@@ -38,4 +38,8 @@ public class TouristService {
     public List<String> getTagsForAttraction(String name) {
         return touristRepository.getTagsByName(name);
     }
+
+    public List<String> getAllTags() {
+        return touristRepository.getAllTags();
+    }
 }
