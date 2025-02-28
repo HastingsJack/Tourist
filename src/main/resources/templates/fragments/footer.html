@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th ="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<footer>
+<div th:fragment="footer">
+    <span class = "textBlock"><a href="joha@stud.kea.dk">joha@stud.kea.dk</a></span>
+    <span class ="textBlock">&copy; <span th:text="${#dates.year(#dates.createNow())}"></span> Tourist Guide</span>
+</div>
+</footer>
+</body>
+</html>

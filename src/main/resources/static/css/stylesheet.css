@@ -29,11 +29,12 @@ table {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
 }
+
 th, td {
     color: white;
 }
 
-a {
+.attractions-links {
     color: navajowhite;
     font-size: 30px;
 }
@@ -64,16 +65,20 @@ button {
     margin: auto;
 }
 
-/* Links */
-.attractions-links {
-    text-align: center;
-}
-.attractions-links a {
-    margin: 10px;
+footer {
+    margin-bottom: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    background: white;
+    opacity: 75%;
+    align-self: flex-end;}
+
+.textBlock {
+    display: flex;
+    justify-content: center;
+    color: black;
 }
 
-footer{
-    align-self: center;
-    text-align: center;
-}
+
 
