@@ -39,9 +39,9 @@ public class TouristRepository {
     }
 
 
-    public void addAttraction(String name, String description, String website) {
+    public void addAttraction(TouristAttraction attraction) {
         String sql = "INSERT INTO attraction(name, description, website) VALUES (?,?,?)";
-        jdbcTemplate.update(sql, name, description, website);
+        jdbcTemplate.update(sql, attraction.getName(), attraction.getDescription(), attraction.getWebsite());
     }
 
 
