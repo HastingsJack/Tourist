@@ -12,6 +12,7 @@ import java.util.List;
 
 @Repository
 public class TouristRepository {
+
     private final List<TouristAttraction> attractions = new ArrayList<>();
 
     private final JdbcTemplate jdbcTemplate;
@@ -33,26 +34,31 @@ public class TouristRepository {
     }
 
     public TouristAttraction getAttractionByName(String name) {
-        for (TouristAttraction a : attractions) {
-            if(a.getName().equals(name)) {
-                return a;
-            }
-        }
-        return null;
+        String sql = "SELECT id, name, description, website FROM attraction WHERE name LIKE ?";
+        return jdbcTemplate.queryForObject(sql, new AttractionRowMapper(), "%" + name + "%");
     }
 
-    public void addAttraction(TouristAttraction attraction) {
-        attractions.add(attraction);
+
+    public void addAttraction(String name, String description, String website) {
+        String sql = "INSERT INTO attraction(name, description, website) VALUES (?,?,?)";
+        jdbcTemplate.update(sql, name, description, website);
     }
 
+
+    //Is it better to disasemble attraction object here or in controller?
     public void updateAttraction(TouristAttraction attraction) {
-        TouristAttraction oldAttraction = getAttractionByName(attraction.getName());
-        oldAttraction.setDescription(attraction.getDescription());
-        oldAttraction.setWebsite(attraction.getWebsite());
+        String sql = "UPDATE attraction SET name = ?, description = ?, website = ?, WHERE id = ? ";
+        jdbcTemplate.update(sql, attraction.getName(),attraction.getDescription(), attraction.getWebsite(), attraction.getId());
+
+//
+//        TouristAttraction oldAttraction = getAttractionByName(attraction.getName());
+//        oldAttraction.setDescription(attraction.getDescription());
+//        oldAttraction.setWebsite(attraction.getWebsite());
     }
 
     public void deleteAttraction(TouristAttraction attraction) {
-        attractions.remove(attraction);
+        String sql = "DELETE FROM attraction WHERE id = ? ";
+        jdbcTemplate.update(sql, attraction.getId());
     }
 
     public List<String> getTagsByName(String name) {

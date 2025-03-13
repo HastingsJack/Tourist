@@ -43,7 +43,12 @@ public class TouristController {
 
     @PostMapping("/save")
     public String addAttraction(@ModelAttribute("attraction") TouristAttraction attraction) {
-        touristService.addAttraction(attraction);
+        // Extracts individual values from the TouristAttraction object
+        String name = attraction.getName();
+        String description = attraction.getDescription();
+        String website = attraction.getWebsite();
+
+        touristService.addAttraction( name, description, website);
         return "redirect:/attractions";
     }
 
