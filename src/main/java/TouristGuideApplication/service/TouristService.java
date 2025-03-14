@@ -23,7 +23,7 @@ public class TouristService {
         return touristRepository.getAttractionByName(name);
     }
 
-    public void addAttraction(TouristAttraction attraction) {
+    public void addAttraction( TouristAttraction attraction) {
         touristRepository.addAttraction(attraction);
     }
 
