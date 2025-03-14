@@ -36,6 +36,8 @@ class TouristControllerTest {
     }
 
 
+    //kasper//
+
     @Test
     void getAllAttractions() {
     }
@@ -44,6 +46,12 @@ class TouristControllerTest {
     void getAttraction() {
     }
 
+
+    //kasper end//
+
+
+
+    //Jack//
     @Test
     void addAttraction() {
     }
@@ -52,6 +60,11 @@ class TouristControllerTest {
     void testAddAttraction() {
     }
 
+    //Jack END//
+
+
+
+    //Johan//
     @Test
     void editAttractionForm() {
     }
@@ -60,6 +73,10 @@ class TouristControllerTest {
     void editAttraction() {
     }
 
+    //Johan end//
+
+
+    //Jacob//
     @Test
     void deleteAttraction() {
     }
@@ -67,4 +84,6 @@ class TouristControllerTest {
     @Test
     void getTagsForAttraction() {
     }
+
+    //Jacob End//
 }
