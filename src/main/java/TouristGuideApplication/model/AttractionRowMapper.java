@@ -14,6 +14,7 @@ public class AttractionRowMapper implements RowMapper<TouristAttraction> {
         String name = rs.getString("name");
         String description = rs.getString("description");
         String website = rs.getString("website");
+
         return new TouristAttraction(id, name, description, website);
     }
 }

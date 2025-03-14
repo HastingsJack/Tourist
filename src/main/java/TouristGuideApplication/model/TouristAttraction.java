@@ -30,6 +30,11 @@ public class TouristAttraction {
 
     }
 
+    public TouristAttraction(int id, List<String> tags){
+        this.id = id;
+        this.tags = tags;
+    }
+
     public List<String> getTags() {
         return tags;
     }
@@ -64,5 +69,14 @@ public class TouristAttraction {
 
     public int getId() {
         return id;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+
+    }
+
+    public void setCity(List<String> city) {
+        this.city = city;
     }
 }
