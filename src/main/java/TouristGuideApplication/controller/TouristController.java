@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @Controller
 @RequestMapping("/attractions")
@@ -56,11 +55,6 @@ public class TouristController {
         model.addAttribute("attraction", attraction);
         return "editAttraction-form";
     }
-
-
-
-
-
 
     @PostMapping("/update")
     public String editAttraction(@ModelAttribute("attraction") TouristAttraction attraction) {
