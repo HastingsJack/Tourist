@@ -1,5 +1,6 @@
 package TouristGuideApplication.controller;
 
+import TouristGuideApplication.model.TouristAttraction;
 import TouristGuideApplication.service.TouristService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,11 +10,14 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -22,12 +26,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @WebMvcTest(TouristController.class)
-class TouristControllerTest {
+class TouristControllerTests {
 
     @Autowired
     private MockMvc mockMvc;
 
-    @Mock
+    @MockBean
     private TouristService touristService;
 
     @InjectMocks
@@ -61,13 +65,31 @@ class TouristControllerTest {
 
     //Jack//
     @Test
-    void addAttraction() {
+    void testAddAttraction() throws Exception{
+        List<String> mockTags = Arrays.asList("Nature", "Paid", "Diving");
+        when(touristService.getAllTags()).thenReturn(mockTags);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/attractions/add"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("addAttraction-form"))
+                .andExpect(model().attributeExists("attraction"))
+                .andExpect(model().attributeExists("tags"))
+                .andExpect(model().attribute("tags", mockTags));
     }
 
     @Test
-    void testAddAttraction() {
-    }
+    void testSaveAttraction() throws Exception{
+        TouristAttraction attraction = new TouristAttraction();
+        attraction.setName("TestAttraction");
+        attraction.setDescription("Test");
 
+        mockMvc.perform(MockMvcRequestBuilders.post("/attractions/save")
+                .flashAttr("attraction",attraction))
+                .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/attractions"));
+
+        verify(touristService, times(1)).addAttraction(attraction);
+    }
     //Jack END//
 
 
