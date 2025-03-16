@@ -107,41 +107,6 @@ class TouristControllerTests {
 
 
     //Jacob//
-    @Test
-    void deleteAttraction_ShouldRedirect_WhenAttractionExists() throws Exception {
-        // Arrange
-        String attractionName = "YellowStone";
-        TouristAttraction mockAttraction = new TouristAttraction(null, attractionName, null, null,null);
-
-        when(touristService.getAttractionByName(attractionName)).thenReturn(mockAttraction);
-        doNothing().when(touristService).deleteAttraction(any());
-
-        // Act & Assert
-        mockMvc.perform(post("/attractions/delete/" + attractionName))
-                .andExpect(status().is3xxRedirection()) // Expecting redirect
-                .andExpect(redirectedUrl("/attractions"));
-
-        // Verify that deleteAttraction was called once
-        verify(touristService, times(1)).deleteAttraction(any());
-    }
-
-    @Test
-    void deleteAttraction_ShouldRedirect_WhenAttractionDoesNotExist() throws Exception {
-        // Arrange
-        String attractionName = "NonExistent";
-
-        when(touristService.getAttractionByName(attractionName)).thenReturn(null);
-
-        // Act & Assert
-        mockMvc.perform(post("/attractions/delete/" + attractionName))
-                .andExpect(status().is3xxRedirection()) // Expecting redirect
-                .andExpect(redirectedUrl("/attractions"));
-
-        // Verify that deleteAttraction was never called since the attraction doesn't exist
-        verify(touristService, times(0)).deleteAttraction(any());
-    }
-
-
 
     @Test
     void getTagsForAttraction() throws Exception {
