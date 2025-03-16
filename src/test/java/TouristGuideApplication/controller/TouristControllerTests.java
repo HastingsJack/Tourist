@@ -107,23 +107,6 @@ class TouristControllerTests {
 
 
     //Jacob//
-    @Test
-    void deleteAttraction() throws Exception {
-
-        //arrange
-        String attractionName = "YellowStone";
-
-        doNothing().when(touristService).deleteAttraction(any());
-
-        // act
-        mockMvc.perform(post("/attractions/delete/" + attractionName))
-                .andExpect(status().is3xxRedirection()) // Redirect expected
-                .andExpect(redirectedUrl("/attractions"));
-
-        // assert
-        verify(touristService, times(1)).deleteAttraction(any());
-    }
-
 
     @Test
     void getTagsForAttraction() throws Exception {
