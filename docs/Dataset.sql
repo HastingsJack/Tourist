@@ -48,7 +48,7 @@ INSERT INTO tags (name) VALUES
 ('Adventure'),
 ('Paid'),
 ('Hiking'),
-('Vulcano'),
+('Volcano'),
 ('Diving');
 
 INSERT INTO attraction (name, description, website) VALUES
