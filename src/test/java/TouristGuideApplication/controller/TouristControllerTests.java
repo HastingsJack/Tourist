@@ -123,11 +123,40 @@ class TouristControllerTests {
 
     //Johan//
     @Test
-    void editAttractionForm() {
+    void testEditAttractionForm() throws Exception {
+
+        TouristAttraction mockAttraction = new TouristAttraction(
+                "yellowstone", "Big field", "www.yellowstone.netlix", new ArrayList<>(), new ArrayList<>());
+        when(touristService.getAttractionByName("yellowstone")).thenReturn(mockAttraction);
+
+        mockMvc.perform(get("/attractions/yellowstone/edit"))
+                .andExpect(model().attributeExists("attraction"))
+                .andExpect(model().attribute("attraction", mockAttraction))
+                .andExpect(view().name("editAttraction-form"));
+
+        when(touristService.getAttractionByName("nonExisting")).thenReturn(null);
+
+        mockMvc.perform(get("/nonExisting/edit"))
+                .andExpect(status().isNotFound());
     }
 
     @Test
-    void editAttraction() {
+    void testEditAttraction() throws Exception {
+
+        //arrange
+        TouristAttraction mockAttraction = new TouristAttraction(
+                "YellowStone", "Big field", "www.yellowstone.netlix", new ArrayList<>(),
+                new ArrayList<>());
+
+        //act and assert
+        mockMvc.perform(post("/attractions/update")
+                .flashAttr("attraction", mockAttraction))
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/attractions"));
+
+
+        verify(touristService, times(1)).updateAttraction(mockAttraction);
+
     }
 
     //Johan end//

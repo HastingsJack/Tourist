@@ -1,5 +1,4 @@
 package TouristGuideApplication.controller;
-
 import TouristGuideApplication.model.TouristAttraction;
 import TouristGuideApplication.service.TouristService;
 import org.springframework.stereotype.Controller;
@@ -80,4 +79,5 @@ public class TouristController {
         model.addAttribute("name", name);
         return "tags";
     }
+
 }

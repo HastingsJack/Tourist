@@ -27,7 +27,6 @@ public class TouristRepository {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-
     public List<TouristAttraction> getAllAttractions() {
         String sql = "SELECT id, name, description, website FROM attraction";
         return jdbcTemplate.query(sql, new AttractionRowMapper());
@@ -62,12 +61,10 @@ public class TouristRepository {
         return touristAttraction;
     }
 
-
     public void addAttraction(TouristAttraction attraction) {
         String sql = "INSERT INTO attraction(name, description, website) VALUES (?,?,?)";
         jdbcTemplate.update(sql, attraction.getName(), attraction.getDescription(), attraction.getWebsite());
     }
-
 
     //Is it better to disasemble attraction object here or in controller?
     public void updateAttraction(TouristAttraction attraction) {
