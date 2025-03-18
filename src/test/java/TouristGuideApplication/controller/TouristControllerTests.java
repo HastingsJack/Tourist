@@ -7,14 +7,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,6 +25,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
@@ -51,11 +55,34 @@ class TouristControllerTests {
     //kasper//
 
     @Test
-    void getAllAttractions() {
+    void getAllAttractions() throws Exception {
+        List<TouristAttraction> attractions = List.of(
+                new TouristAttraction("Eiffel Tower", "Iconic landmark", "https://eiffel.com",
+                        List.of("historic", "landmark"), List.of("Paris")),
+                new TouristAttraction("Colosseum", "Ancient Roman amphitheater", "https://colosseum.com",
+                        List.of("historic", "architecture"), List.of("Rome"))
+        );
+
+        when(touristService.getAllAttractions()).thenReturn(attractions);
+        mockMvc.perform(get("/attractions"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("attractions"))
+                .andExpect(model().attributeExists("attractions"))
+                .andExpect(model().attribute("attractions", attractions));
     }
 
     @Test
-    void getAttraction() {
+    void getAttraction() throws Exception {
+        String attractionName = "Eiffel Tower";
+        TouristAttraction attraction = new TouristAttraction(attractionName, "Iconic landmark", "https://eiffel.com",
+                List.of("historic", "landmark"), List.of("Paris"));
+
+        Mockito.when(touristService.getAttractionByName(attractionName)).thenReturn(attraction);
+        mockMvc.perform(get("/attractions/" + attractionName))
+                .andExpect(status().isOk())
+                .andExpect(view().name("attraction-form"))
+                .andExpect(model().attributeExists("attraction"))
+                .andExpect(model().attribute("attraction", attraction));
     }
 
 
